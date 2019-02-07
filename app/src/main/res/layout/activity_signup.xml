@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/singup_page_padding"
+    android:background="@drawable/art_background">
+
+    <ImageView
+        android:layout_width="@dimen/signup_logo_width"
+        android:layout_height="@dimen/signup_logo_height"
+        android:layout_gravity="center"
+        android:id="@+id/logo_singup_page"
+        android:layout_marginTop="@dimen/signup_top_margin"
+        android:src="@drawable/sharetap_2" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_marginTop="@dimen/gsign_top_margin"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/gsign_button_width"
+        android:layout_height="wrap_content" />
+</LinearLayout>

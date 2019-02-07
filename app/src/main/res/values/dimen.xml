@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="signup_logo_height">100dp</dimen>
+    <dimen name="signup_logo_width">200dp</dimen>
+    <dimen name="singup_page_padding">10dp</dimen>
+    <dimen name="signup_top_margin">30dp</dimen>
+
+    <dimen name="gsign_button_height">20dp</dimen>
+    <dimen name="gsign_button_width">150dp</dimen>
+
+    <dimen name="gsign_top_margin">50dp</dimen>
+</resources>
