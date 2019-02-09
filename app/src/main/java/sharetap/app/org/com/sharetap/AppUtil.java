@@ -1,10 +1,14 @@
 package sharetap.app.org.com.sharetap;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.util.Log;
+
+import org.json.JSONObject;
 
 import java.util.jar.Attributes;
 
@@ -14,7 +18,19 @@ public class AppUtil {
     public static AppUtil getUtilInstance(){
         return utilInstance;
     }
-
+/*
+This is the sample json structure that will be stored in DB / shown in QR
+{
+    "user_name":"name",
+    "user_mail":"mail@domain.com",
+    "fb_details":{
+        "fb_profile":""
+    },
+    "insta_details":{
+        "insta_profile":""
+    }
+}
+*/
     public static Intent getFacebookIntent(PackageManager pm, String url) {
         url = "nirmal.raj.7923";
         Uri uri = Uri.parse(url);
@@ -57,5 +73,26 @@ public class AppUtil {
             Log.e(AppConstants.LOGGER_CONSTANT,"Resolution app not found for instagram"+exp.getMessage());
             return null;
         }
+    }
+
+    public String getUserJSON(Context context){
+        SharedPreferences myPrefs = context.getSharedPreferences(AppConstants.USER_SHARED_PREFS,Context.MODE_PRIVATE);
+        return myPrefs.getString(AppConstants.SHARED_PREFS_KEY,AppConstants.NO_DETAILS);
+    }
+
+    private void storeUserJson(Context context, JSONObject data){
+        SharedPreferences myPrefs = context.getSharedPreferences(AppConstants.USER_SHARED_PREFS,Context.MODE_PRIVATE);
+        SharedPreferences.Editor prefsEdit = myPrefs.edit();
+        prefsEdit.putString(AppConstants.SHARED_PREFS_KEY,data.toString());
+        prefsEdit.apply();
+    }
+
+    public boolean isUserLoggedIn(Context context){
+        String result = getUserJSON(context);
+        return (!result.equalsIgnoreCase(AppConstants.NO_DETAILS));
+    }
+
+    public void storeMailDetails(Context context, JSONObject data){
+        storeUserJson(context,data);
     }
 }
