@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/art_background_1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_name"
+        android:id="@+id/user_name"
+        android:textSize="@dimen/text_size_jumbo"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/details_name_top_margin"
+        android:layout_marginBottom="@dimen/details_name_top_margin"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_mails"
+        android:id="@+id/user_mail"
+        android:textSize="@dimen/text_size_xlarge"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/fb_text_input_layout"
+        android:layout_width="match_parent"
+        app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+        android:textColorHint="@android:color/white"
+        android:layout_margin="@dimen/details_textinput_margin"
+        android:padding="@dimen/details_textinput_padding"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/fb_profile_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:hint="@string/fb_profile_id"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/insta_text_input_layout"
+        android:layout_width="match_parent"
+        app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout"
+        android:layout_margin="@dimen/details_textinput_margin"
+        android:padding="@dimen/details_textinput_padding"
+        android:textColorHint="@android:color/white"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/insta_profile_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:hint="@string/insta_profile_id"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:padding="@dimen/details_button_padding"
+            android:id="@+id/save_user_details"
+            android:layout_margin="@dimen/details_button_margin"
+            android:text="@string/save_details"/>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:padding="@dimen/details_button_padding"
+            android:id="@+id/open_main_page"
+            android:layout_margin="@dimen/details_button_margin"
+            android:text="@string/main_page"/>
+    </LinearLayout>
+</LinearLayout>
