@@ -1,9 +1,13 @@
 package sharetap.app.org.com.sharetap;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -20,14 +24,18 @@ import com.google.android.gms.tasks.Task;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.Permission;
+
 public class SignInActivity extends Activity {
     SignInButton googleSignIn;
     GoogleSignInClient mGoogleSignInClient;
     Integer RC_SIGN_IN = 985; //Request code for activity result
+    Integer RC_PERMISSION_CODE = 785;//RequestCode for the permission result
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(AppConstants.LOGGER_CONSTANT,"SignupActivity");
+        checkForCameraPermission();
         if(AppUtil.getUtilInstance().isUserLoggedIn(getApplicationContext())){
             moveToMainPage();
         }
@@ -36,6 +44,16 @@ public class SignInActivity extends Activity {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         initViews();
+    }
+
+    public void checkForCameraPermission(){
+        if(ContextCompat.checkSelfPermission(SignInActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+             ActivityCompat.requestPermissions(SignInActivity.this,new String[]{Manifest.permission.CAMERA},RC_PERMISSION_CODE);
+        }else{
+            Log.i(AppConstants.LOGGER_CONSTANT,"Camera permission already present");
+        }
+
+
     }
 
     public void initViews(){
@@ -57,6 +75,8 @@ public class SignInActivity extends Activity {
         if(requestCode == RC_SIGN_IN){
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
+        } else if (requestCode == RC_PERMISSION_CODE){
+            Log.i(AppConstants.LOGGER_CONSTANT,"Permission to use camera granted");
         }
     }
 
@@ -88,5 +108,6 @@ public class SignInActivity extends Activity {
     private void moveToMainPage(){
         Intent mainIntent = new Intent((SignInActivity)this,MainActivity.class);
         startActivity(mainIntent);
+        finish();
     }
 }

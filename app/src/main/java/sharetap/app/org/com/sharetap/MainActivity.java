@@ -12,6 +12,10 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import sharetap.app.org.com.sharetap.Fragment.ScanQRFragment;
+import sharetap.app.org.com.sharetap.Fragment.ScannedItemsFragment;
+import sharetap.app.org.com.sharetap.Fragment.ShowQRFragment;
+
 public class MainActivity extends AppCompatActivity {
     TabLayout baseTabLayout;
     ViewPager fragmentPager;
@@ -22,55 +26,60 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_2);
         initView();
     }
+
     public void initView(){
         baseTabLayout = findViewById(R.id.switch_tablayout);
         fragmentPager = findViewById(R.id.fragment_holder);
         ArrayList<Integer> tabResources = new ArrayList<>();
-
-        for(String name: tabResources) {
-            baseTabLayout.addTab(baseTabLayout.newTab().setIcon());
-        }
-        baseTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-        baseTabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimaryDark));
-        baseTabLayout.setSelectedTabIndicatorHeight(10);
-    //        baseTabLayout.addOnTabSelectedListener(tabSelectedListener);
-        fragmentPager.setAdapter(new fragmetSwitcherAdapter(getSupportFragmentManager(),tabNames));
+        tabResources.add(R.drawable.ic_qrcode_scan);
+        tabResources.add(R.drawable.ic_outline_view_list_24px);
+        tabResources.add(R.drawable.ic_qrcode);
+        baseTabLayout.setTabMode(TabLayout.MODE_FIXED);
+        baseTabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
+        baseTabLayout.setSelectedTabIndicatorHeight(15);
+        fragmentPager.setAdapter(new fragmetSwitcherAdapter(getSupportFragmentManager()));
         baseTabLayout.setupWithViewPager(fragmentPager);
-    }
-
-
-public class fragmetSwitcherAdapter extends FragmentPagerAdapter {
-    ArrayList<String> itemList= new ArrayList<>();
-    @Override
-    public Fragment getItem(int position) {
-        Fragment myFragment = null;
-        Log.i(AppConstants.APP_LOG_TAG,"The position selected is "+position);
-        switch (position) {
-            case 0:
-                return new SampleFragment();
-            default:
-                Log.i(AppConstants.APP_LOG_TAG,"Did not find any tab for the selected item");
-                return new SoonFragment();
+        for (int i = 0; i < tabResources.size() ; i++) {
+            baseTabLayout.getTabAt(i).setIcon(tabResources.get(i));
         }
     }
 
-    @Override
-    public int getCount() {
-        return itemList.size();
-    }
+    public class fragmetSwitcherAdapter extends FragmentPagerAdapter {
+        ArrayList<Integer> itemList= new ArrayList<>();
+        String names[] = new String[]{"tab1","tab2","tab3"};
+        @Override
+        public Fragment getItem(int position) {
+            Log.i(AppConstants.LOGGER_CONSTANT,"The position selected is "+position);
+            switch (position) {
+                case 0:
+                    return new ScanQRFragment();
+                case 1:
+                    return new ScannedItemsFragment();
+                case 2:
+                    return new ShowQRFragment();
+                default:
+                    Log.i(AppConstants.LOGGER_CONSTANT,"Did not find any tab for the selected item");
+                    return new ShowQRFragment();
+            }
+        }
 
-    public fragmetSwitcherAdapter(FragmentManager fm){
-        super(fm);
-    }
+        @Override
+        public int getCount() {
+            return names.length;
+        }
 
-    public fragmetSwitcherAdapter(FragmentManager fm,ArrayList itemList){
-        super(fm);
-        this.itemList = itemList;
-    }
+        public fragmetSwitcherAdapter(FragmentManager fm){
+            super(fm);
+        }
 
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return itemList.get(position);
+        public fragmetSwitcherAdapter(FragmentManager fm,ArrayList itemList){
+            super(fm);
+            this.itemList = itemList;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return null;
+        }
     }
-}
 }

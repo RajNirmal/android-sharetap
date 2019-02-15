@@ -17,11 +17,19 @@
     <dimen name="details_button_padding">20dp</dimen>
     <dimen name="details_button_margin">20dp</dimen>
 
+    <dimen name="qr_code_height">350dp</dimen>
+    <dimen name="qr_code_width">350dp</dimen>
+    <dimen name="qr_code_margin_top">40dp</dimen>
+    <dimen name="qr_code_margin_left">60dp</dimen>
+
+    <dimen name="fab_margin">15dp</dimen>
+
 
     <dimen name="text_size_medium">12sp</dimen>
     <dimen name="text_size_small">10sp</dimen>
     <dimen name="text_size_large">14sp</dimen>
     <dimen name="text_size_jumbo">24sp</dimen>
     <dimen name="text_size_xlarge">18sp</dimen>
+
 
 </resources>
