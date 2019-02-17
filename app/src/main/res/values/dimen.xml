@@ -31,5 +31,16 @@
     <dimen name="text_size_jumbo">24sp</dimen>
     <dimen name="text_size_xlarge">18sp</dimen>
 
+    <dimen name="card_corner_radius">6dp</dimen>
+    <dimen name="card_margin">10dp</dimen>
+    <dimen name="card_mail_height">20dp</dimen>
+    <dimen name="card_mail_margin">10dp</dimen>
+    <dimen name="card_separtor_height">1dp</dimen>
+    <dimen name="card_separtor_start_end">5dp</dimen>
+    <dimen name="card_images_margin">5dp</dimen>
+    <dimen name="card_images_layout_height">75dp</dimen>
+    <dimen name="card_images_height">50dp</dimen>
+    <dimen name="card_images_width">50dp</dimen>
+    <!--<dimen name="card_images_margin">5dp</dimen>-->
 
 </resources>

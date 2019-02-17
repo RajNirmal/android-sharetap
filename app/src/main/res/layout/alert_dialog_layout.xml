@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/card_margin"
+    card_view:cardCornerRadius="@dimen/card_corner_radius">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/card_mail_height" 
+            android:id="@+id/card_mail"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/card_mail_margin"
+            android:text="Mail"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/card_mail_height"
+            android:id="@+id/card_name"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/card_mail_margin"
+            android:text="UserName"/>
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/card_separtor_height"
+            android:layout_marginStart="@dimen/card_separtor_start_end"
+            android:background="@color/colorPrimaryDark"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/card_images_layout_height"
+            android:layout_margin="@dimen/card_images_margin"
+            android:gravity="center"
+            android:orientation="horizontal">
+            
+            <ImageView
+                android:layout_width="@dimen/card_images_width"
+                android:layout_height="@dimen/card_images_height"
+                android:layout_margin="@dimen/card_images_margin"
+                android:src="@drawable/ic_iconfinder_facebook_313103"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/fb_image"/>
+            <ImageView
+                android:layout_width="@dimen/card_images_width"
+                android:layout_height="@dimen/card_images_height"
+                android:src="@drawable/ic_iconfinder_popular_social_media_08_2329265"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitXY"
+                android:id="@+id/insta_image"/>
+            
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
