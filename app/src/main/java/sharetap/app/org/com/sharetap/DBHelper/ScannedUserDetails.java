@@ -2,6 +2,7 @@ package sharetap.app.org.com.sharetap.DBHelper;
 
 public class ScannedUserDetails {
     String userMail;
+    String userDetails;
 
     public String getUserDetails() {
         return userDetails;
@@ -11,7 +12,6 @@ public class ScannedUserDetails {
         this.userDetails = userDetails;
     }
 
-    String userDetails;
 
     public String getUserMail() {
         return userMail;

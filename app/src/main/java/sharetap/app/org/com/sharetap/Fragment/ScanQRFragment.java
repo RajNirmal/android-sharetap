@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
@@ -61,6 +60,8 @@ public class ScanQRFragment extends Fragment {
                 codeScanner.startPreview();
             }
         });
+        String mail = "mail@domain.com";
+        Log.i(AppConstants.LOGGER_CONSTANT, " Is mail already present : " + new DBHandler(getContext()).getUserDetailsByMail(mail).toString());
         return root;
     }
 

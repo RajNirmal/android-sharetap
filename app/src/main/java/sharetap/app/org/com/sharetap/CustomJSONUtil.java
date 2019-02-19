@@ -36,7 +36,7 @@ public class CustomJSONUtil {
     public String getUserName(JSONObject object){
         String name = "";
         try {
-            name = (String)object.get(AppConstants.USER_MAIL);
+            name = (String) object.get(AppConstants.USER_NAME);
         }catch (Exception exp){
             Log.e(AppConstants.LOGGER_CONSTANT,"Exception while fetching name from JSON "+exp.getMessage());
         }

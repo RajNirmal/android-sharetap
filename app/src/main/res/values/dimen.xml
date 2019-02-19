@@ -33,7 +33,7 @@
 
     <dimen name="card_corner_radius">6dp</dimen>
     <dimen name="card_margin">10dp</dimen>
-    <dimen name="card_mail_height">20dp</dimen>
+    <dimen name="card_mail_height">25dp</dimen>
     <dimen name="card_mail_margin">10dp</dimen>
     <dimen name="card_separtor_height">1dp</dimen>
     <dimen name="card_separtor_start_end">5dp</dimen>

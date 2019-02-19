@@ -6,4 +6,5 @@
     <string name="insta_profile_id">Insta Profile</string>
     <string name="save_details">SAVE</string>
     <string name="main_page">Back</string>
+    <string name="no_users"> You have not scanned any users yet</string>
 </resources>

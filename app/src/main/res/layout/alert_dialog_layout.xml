@@ -5,7 +5,7 @@
     android:id="@+id/card_view"
     android:layout_gravity="center"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="@dimen/card_margin"
     card_view:cardCornerRadius="@dimen/card_corner_radius">
 
@@ -16,19 +16,21 @@
         
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/card_mail_height" 
-            android:id="@+id/card_mail"
+            android:id="@+id/card_name"
+            android:layout_height="@dimen/card_mail_height"
             android:textColor="@android:color/black"
             android:layout_gravity="center"
             android:layout_margin="@dimen/card_mail_margin"
+            android:textSize="@dimen/text_size_xlarge"
             android:text="Mail"/>
         
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="@dimen/card_mail_height"
-            android:id="@+id/card_name"
+            android:id="@+id/card_mail"
             android:textColor="@android:color/black"
             android:layout_gravity="center"
+            android:textSize="@dimen/text_size_xlarge"
             android:layout_margin="@dimen/card_mail_margin"
             android:text="UserName"/>
         

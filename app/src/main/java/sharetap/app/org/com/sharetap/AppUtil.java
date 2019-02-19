@@ -30,7 +30,7 @@ This is the sample json structure that will be stored in DB / shown in QR
 }
 */
     public static Intent getFacebookIntent(PackageManager pm, String url) {
-        url = "nirmal.raj.7923";
+//        url = "nirmal.raj.7923";
         Uri uri = Uri.parse(url);
         String facebookUrl = "https://www.facebook.com/"+url;
         String facebookFinalUrl = "";
@@ -52,7 +52,7 @@ This is the sample json structure that will be stored in DB / shown in QR
     }
 
     public static Intent getInstagramIntent(PackageManager pm, String url) {
-        url = "nirmalmraj";
+//        url = "nirmalmraj";
         String instagramUrl = "http://instagram.com/_u//"+url;
         Uri uri = Uri.parse(instagramUrl);
         String facebookFinalUrl = "";
