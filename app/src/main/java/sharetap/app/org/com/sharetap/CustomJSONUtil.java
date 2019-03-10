@@ -86,4 +86,21 @@ public class CustomJSONUtil {
             return "";
         }
     }
+
+    public String getSnapId(String json) {
+        try {
+            JSONObject userDetails = new JSONObject(json);
+            if (userDetails.has(AppConstants.SNAP_DETAILS)) {
+                return (String) ((JSONObject) userDetails.get(AppConstants.SNAP_DETAILS)).get(AppConstants.SNAP_PROFILE_DETAILS);
+            } else {
+                Log.i(AppConstants.LOGGER_CONSTANT, "Snapchat details are not found in this JSON");
+                return "";
+            }
+
+        } catch (JSONException exp) {
+            Log.i(AppConstants.LOGGER_CONSTANT, "Exception while fetching Snapchat details from JSON");
+            Log.e(AppConstants.LOGGER_CONSTANT, exp.getMessage());
+            return "";
+        }
+    }
 }

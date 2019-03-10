@@ -103,6 +103,7 @@ public class ScanQRFragment extends Fragment {
         TextView mailInUi = dialogView.findViewById(R.id.card_mail);
         ImageView fbImage = dialogView.findViewById(R.id.fb_image);
         ImageView instaImage = dialogView.findViewById(R.id.insta_image);
+        ImageView snapImage = dialogView.findViewById(R.id.snap_image);
         nameInUi.setText(userName);
         mailInUi.setText(userMail);
         fbImage.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +116,12 @@ public class ScanQRFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(AppUtil.getInstagramIntent(getContext().getPackageManager(),CustomJSONUtil.getUtil().getInstaId(userDetails)));
+            }
+        });
+        snapImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(AppUtil.getSnapchatIntent(getContext().getPackageManager(), CustomJSONUtil.getUtil().getSnapId(userDetails)));
             }
         });
 

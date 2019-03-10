@@ -61,6 +61,14 @@
                 android:layout_gravity="center_horizontal"
                 android:scaleType="fitXY"
                 android:id="@+id/insta_image"/>
+
+            <ImageView
+                android:id="@+id/snap_image"
+                android:layout_width="@dimen/card_images_width"
+                android:layout_height="@dimen/card_images_height"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerInside"
+                android:src="@drawable/snapchat" />
             
         </LinearLayout>
 

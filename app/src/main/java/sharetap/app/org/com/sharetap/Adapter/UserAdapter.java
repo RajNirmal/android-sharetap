@@ -46,7 +46,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     public class UserViewHolder extends RecyclerView.ViewHolder {
         TextView userMail, userName;
-        ImageView fbIcon, instaIcon;
+        ImageView fbIcon, instaIcon, snapIcon;
         Context context;
         View.OnClickListener fbListener = new View.OnClickListener() {
             @Override
@@ -64,16 +64,25 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                 context.startActivity(instaIntent);
             }
         };
-
+        View.OnClickListener snapListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String snapProfileId = CustomJSONUtil.getUtil().getSnapId(dataSet.get(getAdapterPosition()).getUserDetails());
+                Intent snapchatIntent = AppUtil.getSnapchatIntent(context.getPackageManager(), snapProfileId);
+                context.startActivity(snapchatIntent);
+            }
+        };
         public UserViewHolder(View singleItem) {
             super(singleItem);
             userMail = singleItem.findViewById(R.id.card_mail);
             userName = singleItem.findViewById(R.id.card_name);
             fbIcon = singleItem.findViewById(R.id.fb_image);
             instaIcon = singleItem.findViewById(R.id.insta_image);
+            snapIcon = singleItem.findViewById(R.id.snap_image);
             context = singleItem.getContext();
             fbIcon.setOnClickListener(fbListener);
             instaIcon.setOnClickListener(instaListener);
+            snapIcon.setOnClickListener(snapListener);
         }
 
         public void updateDataSet(ArrayList<ScannedUserDetails> newDataSet) {

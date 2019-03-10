@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">ShareTap</string>
+    <string name="app_name">User²</string>
     <string name="user_name">UserName</string>
     <string name="user_mails">UserMail</string>
     <string name="fb_profile_id">FB Profile Name</string>
     <string name="insta_profile_id">Insta Profile</string>
+    <string name="snap_profile_id">Snapchat Profile Name</string>
     <string name="save_details">SAVE</string>
     <string name="main_page">Back</string>
     <string name="no_users"> You have not scanned any users yet</string>

@@ -55,7 +55,6 @@ This is the sample json structure that will be stored in DB / shown in QR
 //        url = "nirmalmraj";
         String instagramUrl = "http://instagram.com/_u//"+url;
         Uri uri = Uri.parse(instagramUrl);
-        String facebookFinalUrl = "";
         try {
             int versionCode = pm.getPackageInfo("com.instagram.android", 0).versionCode;
             if (versionCode != 0) {
@@ -71,6 +70,28 @@ This is the sample json structure that will be stored in DB / shown in QR
             Log.e(AppConstants.LOGGER_CONSTANT,"Resolution app not found for instagram"+exp.getMessage());
             return null;
         }
+    }
+
+    public static Intent getSnapchatIntent(PackageManager pm, String url) {
+//        url = "Biscardi34";
+        String urlSn = "https://snapchat.com/add/" + url;
+        Uri uri = Uri.parse(urlSn);
+        try {
+            int versionCode = pm.getPackageInfo("com.snapchat.android", 0).versionCode;
+            if (versionCode != 0) {
+                //Snapchat app is present so return intent
+                Intent snapchatIntent = new Intent(Intent.ACTION_VIEW, uri);
+                snapchatIntent.setPackage("com.snapchat.android");
+                return snapchatIntent;
+            } else {
+                return new Intent(Intent.ACTION_VIEW, uri);
+            }
+
+        } catch (PackageManager.NameNotFoundException exp) {
+            Log.e(AppConstants.LOGGER_CONSTANT, "Resolution app not found for instagram" + exp.getMessage());
+            return null;
+        }
+//        return new Intent(Intent.ACTION_VIEW, uri);
     }
 
     public JSONObject getUserJSON(Context context){
@@ -135,6 +156,21 @@ This is the sample json structure that will be stored in DB / shown in QR
         }
     }
 
+    public String getSnapProfileID(Context context) {
+        try {
+            String snapProfileName = getUserJSON(context).getJSONObject(AppConstants.SNAP_DETAILS).getString(AppConstants.SNAP_PROFILE_DETAILS);
+            if (snapProfileName != null) {
+                return snapProfileName;
+            } else {
+                return "";
+            }
+        } catch (Exception exp) {
+            Log.e(AppConstants.LOGGER_CONSTANT, "Snapchat details not found in JSON");
+            Log.e(AppConstants.LOGGER_CONSTANT, exp.getMessage());
+            return "";
+        }
+    }
+
     public String getUserName(Context context){
         String userName;
         try {
@@ -182,6 +218,20 @@ This is the sample json structure that will be stored in DB / shown in QR
             storeUserJson(context, currentData);
         }catch (JSONException exp){
             Log.e(AppConstants.LOGGER_CONSTANT," The exception while storing the insta ID is "+exp.getMessage());
+        }
+    }
+
+    public void setSnapId(Context context, String snapId) {
+        Log.i(AppConstants.LOGGER_CONSTANT, " Setting Snap chat data");
+        JSONObject currentData = getUserJSON(context);
+        JSONObject snapJson = new JSONObject();
+        try {
+            snapJson.put(AppConstants.SNAP_PROFILE_DETAILS, snapId);
+            currentData.put(AppConstants.SNAP_DETAILS, snapJson);
+            Log.i(AppConstants.LOGGER_CONSTANT, currentData.toString());
+            storeUserJson(context, currentData);
+        } catch (JSONException exp) {
+            Log.e(AppConstants.LOGGER_CONSTANT, " The exception while storing the Snap ID is " + exp.getMessage());
         }
     }
 }

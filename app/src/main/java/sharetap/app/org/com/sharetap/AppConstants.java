@@ -13,7 +13,8 @@ public class AppConstants {
     public final static String USER_MAIL = "user_mail";
     public final static String FB_DETAILS = "fb_details";
     public final static String INSTA_DETAILS = "insta_details";
+    public final static String SNAP_DETAILS = "snap_details";
     public final static String FB_PROFILE_DETAILS = "fb_profile";
     public final static String INSTA_PROFILE_DETAILS = "insta_profile";
-
+    public final static String SNAP_PROFILE_DETAILS = "snapchat_profile";
 }
